@@ -1,0 +1,102 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" version="26.2.13">
+  <diagram name="Página-1" id="llxDv5mp3EXHiCAiSaHx">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-1" value="Entregar Pedido" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-610" y="70" width="1020" height="530" as="geometry" />
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-2" value="Funcionário" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-1">
+          <mxGeometry x="70" y="260" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=-0.011;entryY=0.126;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WYLUCqQG3yAHMhbKzzUw-1" source="WYLUCqQG3yAHMhbKzzUw-3" target="WYLUCqQG3yAHMhbKzzUw-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="160" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="370" y="210" />
+              <mxPoint x="280" y="210" />
+              <mxPoint x="280" y="278" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-70" value="2: readQRCode()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-69">
+          <mxGeometry x="-0.0011" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-3" value="Tela de Scanner&lt;br&gt;:UI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-1">
+          <mxGeometry x="340" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-4" value="Pages: OrdemDeCompras" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-1">
+          <mxGeometry x="530" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WYLUCqQG3yAHMhbKzzUw-1" source="WYLUCqQG3yAHMhbKzzUw-2" target="WYLUCqQG3yAHMhbKzzUw-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="290" as="sourcePoint" />
+            <mxPoint x="240" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-35" value="1: validar QR Code" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-10">
+          <mxGeometry x="-0.0021" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.084;entryY=1.013;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WYLUCqQG3yAHMhbKzzUw-1" source="WYLUCqQG3yAHMhbKzzUw-3" target="WYLUCqQG3yAHMhbKzzUw-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="410" y="240" as="sourcePoint" />
+            <mxPoint x="690" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-36" value="3: confirmPedido()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-21">
+          <mxGeometry x="-0.2337" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-46" value="Supabase: OrdemDeCompra" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-1">
+          <mxGeometry x="820" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-47" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WYLUCqQG3yAHMhbKzzUw-1" source="WYLUCqQG3yAHMhbKzzUw-4" target="WYLUCqQG3yAHMhbKzzUw-46">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="700" y="339" as="sourcePoint" />
+            <mxPoint x="840" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-48" value="4: getOrdemDeCompra()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-47">
+          <mxGeometry x="-0.2337" y="-1" relative="1" as="geometry">
+            <mxPoint x="15" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-52" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.922;entryY=1.002;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WYLUCqQG3yAHMhbKzzUw-1" target="WYLUCqQG3yAHMhbKzzUw-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="390" y="330" as="sourcePoint" />
+            <mxPoint x="530" y="280" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="390" y="380" />
+              <mxPoint x="451" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-53" value="6: renderSuccess()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-52">
+          <mxGeometry x="-0.2337" y="-1" relative="1" as="geometry">
+            <mxPoint x="18" y="9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-71" value="Supabase: OrdemDeCompra" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-1">
+          <mxGeometry x="670" y="220" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-72" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.571;exitY=0.996;exitDx=0;exitDy=0;entryX=0.333;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="WYLUCqQG3yAHMhbKzzUw-1" source="WYLUCqQG3yAHMhbKzzUw-4" target="WYLUCqQG3yAHMhbKzzUw-71">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="620" y="180" as="sourcePoint" />
+            <mxPoint x="790" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WYLUCqQG3yAHMhbKzzUw-73" value="5: updateOrdemDeCompra()" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" connectable="0" vertex="1" parent="WYLUCqQG3yAHMhbKzzUw-72">
+          <mxGeometry x="-0.2337" y="-1" relative="1" as="geometry">
+            <mxPoint x="15" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
