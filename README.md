@@ -25,7 +25,7 @@ O planejamento e o acompanhamento das tarefas do projeto foram realizados utiliz
 
 A aplicação web foi implantada na plataforma Vercel, que oferece uma infraestrutura serverless otimizada para aplicações desenvolvidas com Next.js. Essa escolha permitiu um processo de deploy contínuo, com integração automática ao repositório GitHub. O acesso à versão em produção pode ser feito por meio do link abaixo:
 
-[Acessar Tuscan Web!](https://plf-es-2024-2-tcci-0393100-dev-bernardo-rohlfs-e-eric-jardim.vercel.app/)
+[Acessar Tuscan Web!](https://tuscan.bernardorohlfs.com)
 
 ## Instalação do Aplicativo Mobile
 
