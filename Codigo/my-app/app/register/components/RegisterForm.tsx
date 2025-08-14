@@ -38,11 +38,12 @@ export function RegisterForm() {
     })
 
     function onSubmit(data: z.infer<typeof register_validation>) {
-        startTransition(async()=> {
-            const res = await registerPassword(data)
-            if(res){
-                toast.warning(res)
-            }
+        startTransition(() => {
+            registerPassword(data).then(res => {
+                if (res) {
+                    toast.warning(res)
+                }
+            })
         })
     }
 
@@ -84,7 +85,7 @@ export function RegisterForm() {
                         <FormItem>
                             <FormLabel>Senha</FormLabel>
                             <FormControl>
-                                <Input 
+                                <Input
                                     type={'password'}
                                     placeholder="Digite sua senha" {...field} />
                             </FormControl>
@@ -92,14 +93,14 @@ export function RegisterForm() {
                         </FormItem>
                     )}
                 />
-                <Button 
-                    type="submit" 
+                <Button
+                    type="submit"
                     className={'w-full'}>
-                        {pending ?
-                        <CircularProgress/>
+                    {pending ?
+                        <CircularProgress />
                         :
                         <>
-                        Cadastrar <UserPlus/>
+                            Cadastrar <UserPlus />
                         </>}
                 </Button>
             </form>

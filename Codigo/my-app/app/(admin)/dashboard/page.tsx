@@ -2,7 +2,6 @@
 import { Metadata } from "next"
 // Icons
 import {
-  DownloadIcon,
   ShoppingBasket,
   ShoppingCartIcon,
   TicketIcon,
@@ -55,7 +54,14 @@ export default async function Dashboard() {
     .eq('organizer_id', userId)
 
   if (eventError || !events || events.length === 0) {
-    return <p className="text-muted-foreground">Nenhum evento encontrado.</p>
+    return (
+      <div className={'flex flex-col py-20 items-center gap-2'}>
+        <h1 className={'text-2xl font-bold'}>Dashboard inativo</h1>
+        <p className="text-muted-foreground">
+          Para ativá-lo, cadastre seu primeiro evento!
+        </p>
+      </div>
+    )
   }
 
   const eventIds = events.map(e => e.id)
@@ -296,7 +302,7 @@ export default async function Dashboard() {
 
           </div>
           <TabsContent value="vendas">
-            <OrdersTable orders={last_10_orders || []} event_ids={eventIds}/>
+            <OrdersTable orders={last_10_orders || []} event_ids={eventIds} />
           </TabsContent>
           <TabsContent value="eventos">
             <EventsTable eventos={eventos_list} />

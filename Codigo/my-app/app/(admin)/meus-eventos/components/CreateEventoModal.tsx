@@ -73,13 +73,14 @@ export const CreateEventoModal = () => {
             return toast.error("A data e hora de término devem ser após o início.")
         }
 
-        startTransition(async () => {
-            const res = await createEvento({
+        startTransition(() => {
+            createEvento({
                 ...data,
                 datetime_start: datetimeStartFull,
                 datetime_end: datetimeEndFull,
+            }).then(res => {
+                if (res) toast.warning(res)
             })
-            if (res) toast.warning(res)
         })
     }
 

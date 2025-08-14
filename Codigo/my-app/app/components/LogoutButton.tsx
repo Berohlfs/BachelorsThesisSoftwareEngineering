@@ -25,8 +25,8 @@ export const LogoutButton = () => {
     const [pending, startTransition] = useTransition()
 
     const logoutCallBack = async () => {
-        startTransition(async ()=> {
-            await logout()
+        startTransition(()=> {
+            logout()
         })
     }
 

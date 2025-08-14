@@ -21,8 +21,8 @@ export const GoogleProviderLoginButton = ({ custom_redirect_url }: Props) => {
     return (
         <button className="text-sm py-2 px-4 items-center border flex gap-3 rounded-lg text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 cursor-pointer mt-4 w-full justify-center"
             onClick={() => {
-                startTransition(async () => {
-                    await loginGoogleProvider(custom_redirect_url)
+                startTransition(() => {
+                    loginGoogleProvider(custom_redirect_url)
                 })
             }}
             disabled={pending}>

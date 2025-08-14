@@ -25,7 +25,7 @@ type Props = {
     token_produto: string
 }
 
-export const UploadPicture = ({token_produto}: Props) => {
+export const UploadPicture = ({ token_produto }: Props) => {
 
     const [open, setOpen] = useState(false)
 
@@ -35,8 +35,8 @@ export const UploadPicture = ({token_produto}: Props) => {
     const [pending, startTransition] = useTransition()
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if(!event.target.files){
-            return 
+        if (!event.target.files) {
+            return
         }
         const file = event.target.files[0]
 
@@ -44,17 +44,17 @@ export const UploadPicture = ({token_produto}: Props) => {
             // FileReader for Base64 preview
             const reader1 = new FileReader()
             reader1.onloadend = () => {
-                if(typeof reader1.result === 'string'){
+                if (typeof reader1.result === 'string') {
                     setImagePreview(reader1.result)
                     console.log(reader1.result)
                 }
             }
             reader1.readAsDataURL(file)
-    
+
             // FileReader for ArrayBuffer
             const reader2 = new FileReader()
             reader2.onloadend = () => {
-                if(reader2.result instanceof ArrayBuffer){
+                if (reader2.result instanceof ArrayBuffer) {
                     setImage(reader2.result)
                     console.log(reader2.result)
                 }
@@ -63,20 +63,21 @@ export const UploadPicture = ({token_produto}: Props) => {
         }
     }
 
-    const uploadPictureCallback = ()=> {
-        if(image instanceof ArrayBuffer){
-            if(new Blob([image]).size > (4 * 1024 * 1024)){
+    const uploadPictureCallback = () => {
+        if (image instanceof ArrayBuffer) {
+            if (new Blob([image]).size > (4 * 1024 * 1024)) {
                 return toast.warning('O arquivo não pode ser maior que 4MB')
             }
-            startTransition(async()=> {
-                const res = await uploadPicture(image, token_produto)
-                if(res){
-                    toast.warning(res)
-                }
-                setImagePreview(null)
-                setImage(null)
+            startTransition(() => {
+                uploadPicture(image, token_produto).then(res => {
+                    if (res) {
+                        toast.warning(res)
+                    }
+                    setImagePreview(null)
+                    setImage(null)
+                })
             })
-        }else{
+        } else {
             toast.warning('Escolha uma imagem')
         }
     }
@@ -107,12 +108,12 @@ export const UploadPicture = ({token_produto}: Props) => {
                 </DialogHeader>
 
                 <Input
-                    onChange={handleFileChange as ((event: {target: {name: string;value: string}}) => void) | undefined}
+                    onChange={handleFileChange as ((event: { target: { name: string; value: string } }) => void) | undefined}
                     accept="image/*"
                     required
                     name={'file'}
                     type={'file'} className={'text-xs'} />
-                    
+
                 {imagePreview && (
                     <img src={String(imagePreview)}
                         alt="Prévia da imagem"
@@ -120,16 +121,16 @@ export const UploadPicture = ({token_produto}: Props) => {
                     />
                 )}
                 <div className={'flex justify-end mt-2'}>
-                    <Button 
+                    <Button
                         disabled={pending}
                         onClick={uploadPictureCallback}>
-                        {pending ? 
-                            <CircularProgress/> 
-                        : 
-                        <>
-                            Atualizar
-                            <Upload />
-                        </>}
+                        {pending ?
+                            <CircularProgress />
+                            :
+                            <>
+                                Atualizar
+                                <Upload />
+                            </>}
                     </Button>
                 </div>
 

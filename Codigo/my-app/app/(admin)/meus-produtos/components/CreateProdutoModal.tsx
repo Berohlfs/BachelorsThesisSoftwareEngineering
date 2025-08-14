@@ -54,11 +54,12 @@ export const CreateProdutoModal = () => {
     })
 
     function onSubmit(data: z.infer<typeof create_produto_validation>) {
-        startTransition(async () => {
-            const res = await createProduto(data)
-            if (res) {
-                toast.warning(res)
-            }
+        startTransition(() => {
+            const res = createProduto(data).then(res => {
+                if (res) {
+                    toast.warning(res)
+                }
+            })
         })
     }
 

@@ -81,17 +81,18 @@ export const AddStaffModal = ({ user_id }: Props) => {
     })
 
     function onSubmit(data: z.infer<typeof create_staff_validation>) {
-        if(!chosen_event_id){
+        if (!chosen_event_id) {
             return toast.warning('Para criar um novo acesso, é preciso escolher um evento.')
         }
-        startTransition(async () => {
-            const res = await addStaff(data, chosen_event_id)
-            setChosenEventId(null)
-            if (res) {
-                toast.warning(res)
-            }else{
-                form.reset()
-            }
+        startTransition(() => {
+            const res = addStaff(data, chosen_event_id).then(res => {
+                setChosenEventId(null)
+                if (res) {
+                    toast.warning(res)
+                } else {
+                    form.reset()
+                }
+            })
         })
     }
 
@@ -167,12 +168,12 @@ export const AddStaffModal = ({ user_id }: Props) => {
                             <div className={'flex items-center gap-2 pt-3 pl-1'}>
                                 {my_events.map(event => (
                                     <Badge
-                                        onClick={()=> setChosenEventId(event.id)}
+                                        onClick={() => setChosenEventId(event.id)}
                                         className={`cursor-pointer ${chosen_event_id === event.id ? 'bg-green-700 text-white' : ''}`}
-                                        variant={'secondary'} 
+                                        variant={'secondary'}
                                         key={event.id}>
                                         {event.name}
-                                        {chosen_event_id === event.id && <Check/>}
+                                        {chosen_event_id === event.id && <Check />}
                                     </Badge>
                                 ))}
                             </div>

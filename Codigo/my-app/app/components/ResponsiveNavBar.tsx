@@ -12,14 +12,12 @@ import {
 } from "@/components/ui/dropdown-menu"
 // Next
 import { useRouter } from "next/navigation"
-// React
-import { JSX } from "react"
 
 type Props = {
     nav_array: {
         route: string,
         label: string,
-        Icon: JSX.Element
+        Icon: React.ReactNode
     }[]
 }
 
@@ -37,7 +35,7 @@ export function ResponsiveNavBar({ nav_array }: Props) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
                 {nav_array.map(item => (
-                    <DropdownMenuItem 
+                    <DropdownMenuItem
                         key={item.label}
                         onClick={() => router.push(item.route)}>
                         {item.label}

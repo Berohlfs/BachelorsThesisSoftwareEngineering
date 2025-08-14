@@ -33,11 +33,12 @@ export const DeleteStaffModal = ({ id }: Props) => {
     const [open, setOpen] = useState(false)
 
     function deleteStaffCalback() {
-        startTransition(async () => {
-            const res = await deleteStaff(id)
-            if (res) {
-                toast.warning(res)
-            }
+        startTransition(() => {
+            const res = deleteStaff(id).then(res => {
+                if (res) {
+                    toast.warning(res)
+                }
+            })
         })
     }
 

@@ -50,8 +50,16 @@ export default async function MinhasCompras({ searchParams }: Props) {
         .eq('client_id', user.user?.id || '').eq('status', 'paid').order('created_at', { ascending: false })
 
     console.log('orders', orders)
-    if (!orders) {
-        return <p className="text-center text-muted-foreground">Nenhuma compra encontrada.</p>
+
+    if (!orders || orders.length < 1) {
+        return (
+            <div className={'flex flex-col py-20 items-center gap-2'}>
+                <h1 className={'text-2xl font-bold'}>Nenhum compra encontrada</h1>
+                <p className="text-muted-foreground">
+                    Suas compras aparecerão aqui :D
+                </p>
+            </div>
+        )
     }
 
     return (<>

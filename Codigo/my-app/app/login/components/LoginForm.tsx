@@ -37,11 +37,12 @@ export function LoginForm() {
     })
 
     function onSubmit(data: z.infer<typeof login_validation>) {
-        startTransition(async()=> {
-            const res = await loginPassword(data)
-            if(res){
-                toast.warning(res)
-            }
+        startTransition(() => {
+            loginPassword(data).then(res => {
+                if (res) {
+                    toast.warning(res)
+                }
+            })
         })
     }
 
@@ -68,7 +69,7 @@ export function LoginForm() {
                         <FormItem>
                             <FormLabel>Senha</FormLabel>
                             <FormControl>
-                                <Input 
+                                <Input
                                     type={'password'}
                                     placeholder="Digite sua senha" {...field} />
                             </FormControl>
@@ -76,16 +77,16 @@ export function LoginForm() {
                         </FormItem>
                     )}
                 />
-                <Button 
-                    type="submit" 
+                <Button
+                    type="submit"
                     className={'w-full'}>
-                        {pending ? 
-                        <CircularProgress/>
-                        : 
+                    {pending ?
+                        <CircularProgress />
+                        :
                         <>
-                        Entrar <LogIn/>
+                            Entrar <LogIn />
                         </>}
-                        
+
                 </Button>
             </form>
         </Form>
