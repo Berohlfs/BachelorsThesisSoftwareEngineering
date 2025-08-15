@@ -89,7 +89,7 @@ export const CreateEventoModal = () => {
     }, [pending])
 
     return (
-        <Dialog open={open} onOpenChange={setOpen}>
+        <Dialog open={open} onOpenChange={setOpen} modal={false}>
             <DialogTrigger asChild>
                 <Button size={'sm'} variant={'outline'}>
                     Novo <Plus />
